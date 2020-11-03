@@ -8,27 +8,35 @@ function Clocks(props) {
     props.onTimeInitialSet(hours * 60 * 60 + minutes * 60);
 
     const increaseTime = () => {
+        let min = minutes;
+        let hrs = hours;
         if (minutes + 30 >= 60) {
-            setMinutes(0);
+            min = 0;
             if (hours + 1 >= 24) {
-                setHours(0);
+                hrs = 0;
             }
-            else setHours(hours + 1);
+            else hrs = hours + 1;
         }
-        else setMinutes(30);
-        props.onTimeChange(hours * 60 * 60 + minutes * 60);
+        else min = 30;
+        props.onTimeChange(hrs * 60 * 60 + min * 60);
+        setHours(hrs);
+        setMinutes(min);
     }
 
     const decreaseTime = () => {
+        let min = minutes;
+        let hrs = hours;
         if (minutes - 30 < 0) {
-            setMinutes(30);
+            min = 30;
             if (hours - 1 < 0) {
-                setHours(23);
+                hrs = 23;
             }
-            else setHours(hours - 1);
+            else hrs = hours - 1;
         }
-        else setMinutes(0);
-        props.onTimeChange(hours * 60 * 60 + minutes * 60);
+        else min = 0;
+        props.onTimeChange(hrs * 60 * 60 + min * 60);
+        setHours(hrs);
+        setMinutes(min);
     }
 
     return (

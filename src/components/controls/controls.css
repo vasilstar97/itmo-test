@@ -27,6 +27,7 @@
     box-shadow: inset 4px 4px 10px rgb(163,177,198,0.8), inset -4px -4px 10px  rgba(255,255,255, 0.8);
     border-radius: 50% !important;
     transition:color .3s;
+    user-select: none
 }
 
 .controls__control:not(:first-child) {
@@ -35,4 +36,14 @@
 
 .controls__control:hover {
     color:black;
+}
+
+.controls__control_set:first-child {
+    color:green;
+}
+.controls__control_set:last-child {
+    color:darkred;
+}
+.controls__control_setting {
+    color: black;
 }
